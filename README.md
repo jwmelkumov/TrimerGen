@@ -1,9 +1,13 @@
 # TrimerGen
 
-TrimerGen is a molecular utility program that generates trimers in an 11D space. The trimers are
-described by the radial distance between the centers of mass (COMs) of their constituent monomers and 8 Euler angles (in the ZYZ convention). 
+TrimerGen is a molecular utility program that generates trimers in a 12D space. The trimers are
+described by the radial distance between the centers of mass (COMs) of their constituent monomers, 8 Euler angles (in the ZYZ convention), and the polar angle that defines the triangular arrangement of the three monomers. 
 The user must provide the geometry of each monomer (in XYZ file format), along 
-with 11 coordinates: $( R_{\rm COM}^{\rm AB}, R_{\rm COM}^{\rm BC}, R_{\rm COM}^{\rm AC}, \beta_A, \gamma_A, \alpha_B, \beta_B, \gamma_B, \alpha_C, \beta_C, \gamma_C )$. Note: $\alpha_A$ is hardcoded and set to 0.
+with 11 coordinates: $( R_{\rm COM}^{\rm AB}, R_{\rm COM}^{\rm BC}, R_{\rm COM}^{\rm AC}, \beta_A, \gamma_A, \alpha_B, \beta_B, \gamma_B, \alpha_C, \beta_C, \gamma_C )$. Note: $\alpha_A$ is hardcoded and set to 0. The 12th coordinate $\theta$ represents the angle $\angle {\rm BAC}$ in the triangle formed by the three monomer COMs. It is determined from the three COM separations via the law of cosines:
+
+$$
+\cos(\theta) = \frac{(R_{\rm COM}^{\rm AB})^2 + (R_{\rm COM}^{\rm AC})^2 - (R_{\rm COM}^{\rm BC})^2}{2 R_{\rm COM}^{\rm AB} R_{\rm COM}^{\rm AC}}
+$$
 
 ## Table of Contents  
 - [Euler Angles and Rigid Body Rotations](#euler-angles-and-rigid-body-rotations) 
